@@ -1,0 +1,20 @@
+# Data files (too large for git)
+data/
+*.json
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+rag-env/
+venv/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
