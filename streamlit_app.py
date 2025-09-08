@@ -478,7 +478,7 @@ def main():
     st.markdown("""
     <div style='text-align: center; color: #666;'>
         <p>Built with Streamlit • Database: 2.8M+ ArXiv papers • 
-        <a href='https://github.com/mitali-ops/arxiv-rag'>View Source</a></p>
+        <a href='https://github.com/mitali-ops/arxiv-rag-assistant'>View Source</a></p>
     </div>
     """, unsafe_allow_html=True)
 
