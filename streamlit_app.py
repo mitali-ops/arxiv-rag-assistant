@@ -315,12 +315,12 @@ def main():
             st.metric("Categories", f"{stats.get('unique_categories', 0):,}")
             
         # Top categories
-        st.subheader("🏷️ Top Categories")
+        st.subheader(" Top Categories")
         for category, count in stats.get('top_categories', [])[:5]:
             st.write(f"**{category}**: {count:,}")
         
         # Example queries
-        st.header("💡 Example Queries")
+        st.header(" Example Queries")
         examples = [
             "transformer models",
             "deep learning applications", 
@@ -366,7 +366,7 @@ def main():
                     st.success(f"Found {len(papers)} papers in {search_time:.2f} seconds")
                     
                     # Answer introduction
-                    st.markdown(f"### 💡 {answer_context['intro']}")
+                    st.markdown(f"###  {answer_context['intro']}")
                     
                     # Display papers
                     st.markdown("### 📚 Research Papers")
@@ -423,7 +423,7 @@ def main():
                             st.divider()
                     
                     # Conclusion
-                    st.markdown(f"### 📋 Summary")
+                    st.markdown(f"###  Summary")
                     st.info(answer_context['conclusion'])
                     
                 else:
@@ -439,7 +439,7 @@ def main():
                 st.warning("Please enter a search query.")
     
     with col2:
-        st.header("📖 How to Use")
+        st.header("How to Use")
         
         st.markdown("""
         **Query Types:**
@@ -467,9 +467,9 @@ def main():
             st.session_state.search_history = []
         
         if st.session_state.search_history:
-            st.subheader("🕒 Recent Searches")
+            st.subheader(" Recent Searches")
             for recent_query in st.session_state.search_history[-5:]:
-                if st.button(f"🔄 {recent_query}", key=f"history_{recent_query}"):
+                if st.button(f"{recent_query}", key=f"history_{recent_query}"):
                     st.experimental_set_query_params(q=recent_query)
                     st.experimental_rerun()
     
@@ -478,7 +478,7 @@ def main():
     st.markdown("""
     <div style='text-align: center; color: #666;'>
         <p>Built with Streamlit • Database: 2.8M+ ArXiv papers • 
-        <a href='https://github.com/yourusername/arxiv-rag'>View Source</a></p>
+        <a href='https://github.com/mitali-ops/arxiv-rag'>View Source</a></p>
     </div>
     """, unsafe_allow_html=True)
 

@@ -14,16 +14,16 @@ def clean_text(text: str) -> str:
     if not text:
         return ""
     
-    # Remove extra whitespace and newlines
+    # Removing extra whitespace and newlines
     text = re.sub(r'\s+', ' ', text.strip())
-    # Remove special characters but keep punctuation
+    # Removing special characters, keeping punctuation
     text = re.sub(r'[^\w\s\-.,;:!?()]', '', text)
     return text
 
 def extract_paper_info(paper: Dict) -> Dict:
     """Extract and validate paper information"""
     try:
-        # Handle different possible data structures
+        # Handling different possible data structures
         authors = paper.get('authors', [])
         if isinstance(authors, str):
             authors = [authors]
@@ -61,7 +61,7 @@ def preprocess_data(data: List[Dict]) -> List[Dict]:
                 skipped += 1
                 continue
                 
-            # Skip papers with very short abstracts (likely incomplete)
+            # Skip papers with very short abstracts (incomplete bhi bol skte hai)
             if len(processed_paper['abstract']) < 100:
                 skipped += 1
                 continue
@@ -122,12 +122,12 @@ def main():
         with open(PREPROCESSED_DATA_PATH, 'w', encoding='utf-8') as f:
             json.dump(preprocessed_data, f, indent=2, ensure_ascii=False)
         
-        logger.info(f"✅ Preprocessing completed! Saved to {PREPROCESSED_DATA_PATH}")
+        logger.info(f" Preprocessing completed! Saved to {PREPROCESSED_DATA_PATH}")
         
     except FileNotFoundError:
-        logger.error("❌ Error: 'arxiv_dataset.json' file not found in data directory")
+        logger.error(" Error: 'arxiv_dataset.json' file not found in data directory")
     except Exception as e:
-        logger.error(f"❌ An error occurred: {e}")
+        logger.error(f" An error occurred: {e}")
 
 if __name__ == '__main__':
     main()

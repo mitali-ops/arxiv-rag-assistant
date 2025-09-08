@@ -107,13 +107,13 @@ class ArXivDatabase:
                     tokenize='porter'
                 );
             ''')
-            logger.info("✅ FTS5 virtual table created successfully")
+            logger.info(" FTS5 virtual table created successfully")
         except sqlite3.OperationalError as e:
             logger.warning(f"Could not create FTS table: {e}")
             logger.warning("Full-text search will use LIKE queries instead")
 
         self.conn.commit()
-        logger.info("✅ Database schema created successfully")
+        logger.info(" Database schema created successfully")
 
     def insert_paper(self, paper_data: Dict) -> Optional[int]:
         """Insert a single paper with all related data"""
@@ -169,7 +169,7 @@ class ArXivDatabase:
                 SELECT id, title, abstract FROM papers
             ''')
             self.conn.commit()
-            logger.info("✅ FTS index updated successfully")
+            logger.info(" FTS index updated successfully")
         except sqlite3.OperationalError:
             logger.warning("FTS table update failed - FTS not available")
 
@@ -227,7 +227,7 @@ def load_and_populate_database():
     
     # Check if preprocessed data exists
     if not PREPROCESSED_DATA_PATH.exists():
-        logger.error(f"❌ Preprocessed data not found: {PREPROCESSED_DATA_PATH}")
+        logger.error(f" Preprocessed data not found: {PREPROCESSED_DATA_PATH}")
         logger.info("Please run preprocessing.py first to create the preprocessed data")
         return False
 
@@ -248,7 +248,7 @@ def load_and_populate_database():
             data = json.load(f)
 
         load_time = time.time() - start_time
-        logger.info(f"✅ Loaded {len(data):,} papers in {load_time:.1f} seconds")
+        logger.info(f" Loaded {len(data):,} papers in {load_time:.1f} seconds")
 
         # Populate database in batches
         logger.info("Populating database...")
@@ -292,9 +292,9 @@ def load_and_populate_database():
         
         # Display results
         logger.info("=" * 60)
-        logger.info("🎉 DATABASE POPULATION COMPLETED!")
+        logger.info(" DATABASE POPULATION COMPLETED!")
         logger.info("=" * 60)
-        logger.info(f"📊 STATISTICS:")
+        logger.info(f" STATISTICS:")
         logger.info(f"   Total papers in database: {stats['total_papers']:,}")
         logger.info(f"   Successfully inserted: {inserted_count:,}")
         logger.info(f"   Failed insertions: {failed_count:,}")
@@ -303,17 +303,17 @@ def load_and_populate_database():
         logger.info(f"   Processing time: {total_time:.1f} seconds")
         logger.info(f"   Database file size: {DATABASE_PATH.stat().st_size / (1024*1024):.1f} MB")
         
-        logger.info(f"\n🔥 TOP CATEGORIES:")
+        logger.info(f"\n TOP CATEGORIES:")
         for category, count in stats['top_categories'][:5]:
             logger.info(f"   {category}: {count:,} papers")
         
         if stats.get('papers_by_year'):
-            logger.info(f"\n📅 RECENT YEARS:")
+            logger.info(f"\n RECENT YEARS:")
             for year, count in stats['papers_by_year'][:5]:
                 logger.info(f"   {year}: {count:,} papers")
         
         logger.info("=" * 60)
-        logger.info("✅ Ready to run the RAG system!")
+        logger.info("Ready to run the RAG system!")
         logger.info("Next steps:")
         logger.info("1. python main.py                  # CLI interface")
         logger.info("2. streamlit run web_app.py       # Web interface")
@@ -322,13 +322,13 @@ def load_and_populate_database():
         return True
 
     except FileNotFoundError:
-        logger.error("❌ Preprocessed data file not found")
+        logger.error("Preprocessed data file not found")
         return False
     except json.JSONDecodeError as e:
-        logger.error(f"❌ Invalid JSON in preprocessed data: {e}")
+        logger.error(f"Invalid JSON in preprocessed data: {e}")
         return False
     except Exception as e:
-        logger.error(f"❌ Error during database population: {e}")
+        logger.error(f"Error during database population: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -336,14 +336,14 @@ def load_and_populate_database():
         db.close()
 
 if __name__ == '__main__':
-    print("🚀 Starting ArXiv Database Setup...")
+    print("Starting ArXiv Database Setup...")
     print(f"Database location: {DATABASE_PATH}")
     print(f"Data source: {PREPROCESSED_DATA_PATH}")
     
     success = load_and_populate_database()
     
     if success:
-        print("🎉 Database setup completed successfully!")
+        print("Database setup completed successfully!")
     else:
-        print("❌ Database setup failed. Check the logs above.")
+        print("Database setup failed. Check the logs above.")
         exit(1)
