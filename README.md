@@ -1,4 +1,4 @@
-\# ArXiv Research Assistant
+# ArXiv Research Assistant
 
 
 
@@ -6,47 +6,47 @@ A production-scale RAG (Retrieval-Augmented Generation) system that enables inte
 
 
 
-\## System Overview
+## System Overview
 
 
 
-\- \*\*Database Scale\*\*: 2,806,229 research papers from ArXiv
+- **Database Scale**: 2,806,229 research papers from ArXiv
 
-\- \*\*Search Performance\*\*: Sub-second to 2-second response times
+- **Search Performance**: Sub-second to 2-second response times
 
-\- \*\*Full-Text Search\*\*: Advanced FTS5 indexing with relevance scoring
+- **Full-Text Search**: Advanced FTS5 indexing with relevance scoring
 
-\- \*\*Multiple Interfaces\*\*: Command-line, interactive, and web-based
-
-
-
-\## Quick Start
+- **Multiple Interfaces**: Command-line, interactive, and web-based
 
 
 
-1\. Install dependencies: `pip install streamlit`
-
-2\. Run web interface: `streamlit run streamlit\_app.py`
-
-3\. Run CLI: `python simple\_rag.py "your question here"`
+## Quick Start
 
 
 
-\## Features
+1. Install dependencies: `pip install streamlit`
+
+2. Run web interface: `streamlit run streamlit\_app.py`
+
+3. Run CLI: `python simple\_rag.py "your question here"`
 
 
 
-\- \*\*Smart Search\*\*: Full-text search through 2.8M papers
-
-\- \*\*Template Responses\*\*: Context-aware answer generation
-
-\- \*\*Web Interface\*\*: Professional Streamlit application
-
-\- \*\*Production Ready\*\*: Robust error handling and logging
+## Features
 
 
 
-\## Performance Metrics
+- **Smart Search**: Full-text search through 2.8M papers
+
+- **Template Responses**: Context-aware answer generation
+
+- **Web Interface**: Professional Streamlit application
+
+- **Production Ready**: Robust error handling and logging
+
+
+
+## Performance Metrics
 
 
 
@@ -66,17 +66,17 @@ A production-scale RAG (Retrieval-Augmented Generation) system that enables inte
 
 
 
-\## Architecture
+## Architecture
 
 
 
-\- `preprocessing.py`: Data cleaning and validation
+- `preprocessing.py`: Data cleaning and validation
 
-\- `database.py`: SQLite database with FTS5 indexing  
+- `database.py`: SQLite database with FTS5 indexing  
 
-\- `simple\_rag.py`: Core RAG system
+- `simple\_rag.py`: Core RAG system
 
-\- `streamlit\_app.py`: Web interface
+- `streamlit\_app.py`: Web interface
 
 
 
