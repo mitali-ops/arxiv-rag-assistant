@@ -15,7 +15,7 @@ PREPROCESSED_DATA_PATH = DATA_DIR / "preprocessed_arxiv_dataset.json"
 # Create data directory if it doesn't exist
 DATA_DIR.mkdir(exist_ok=True)
 
-# Set up logging
+# Set up log
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
