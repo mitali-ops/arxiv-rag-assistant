@@ -12,7 +12,7 @@ A production-scale RAG (Retrieval-Augmented Generation) system that enables inte
 
 - **Database Scale**: 2,806,229 research papers from ArXiv
 
-- **Search Performance**: Sub-second to 2-second response times
+- **Search Performance**: Sub-second to 2-second response time
 
 - **Full-Text Search**: Advanced FTS5 indexing with relevance scoring
 
